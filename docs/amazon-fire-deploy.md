@@ -52,7 +52,7 @@ This workspace cannot produce the Android package yet because Java, Gradle, and 
 - Include both 32-bit and 64-bit support if the native wrapper later adds native libraries. A pure WebView/Capacitor app should not need custom native libraries.
 - Keep the app small. Amazon warns above 50 MB and recommends minimizing download size.
 - Complete the privacy questionnaire. Amazon states new apps and updates require a completed privacy questionnaire as of Q2 2025.
-- Host `privacy.html` at a public HTTPS URL before submission and replace the contact line with the real support contact.
+- Use the GitHub Pages privacy policy URL for submission: `https://starhound.github.io/free-draw/privacy.html`.
 - Keep `assets/public-domain/sources.json` with the submitted build materials as the provenance record for Classic Sheets.
 - Use "All Ages" only if the final submitted build stays free of external links, ads, social features, unrestricted web content, and mature content.
 - Do not use Amazon DRM for this first build unless there is a specific paid-app requirement. A free kids drawing app is simpler without DRM.

@@ -37,7 +37,7 @@ Amazon accepts both APK and AAB. AAB is optional, not mandatory.
 6. Add store listing details from `store/amazon-listing.md`.
 7. Upload screenshots, small icon, large icon, and any optional promo images.
 8. Complete the privacy questionnaire.
-9. Add the hosted privacy policy URL. Suggested URL after GitHub Pages is enabled: `https://starhound.github.io/free-draw/privacy.html`.
+9. Add the hosted privacy policy URL: `https://starhound.github.io/free-draw/privacy.html`.
 10. Use Live App Testing or install on a real Fire tablet before final submission.
 11. Submit for review.
 
@@ -56,7 +56,8 @@ For the current app code:
 - Drawing data transfer to third parties: No.
 - Local storage: Yes, drawings and the selected page are stored on-device only.
 
-Host `privacy.html` on a public HTTPS URL before submission.
+The privacy policy is published from `docs/privacy.html` through GitHub Pages:
+`https://starhound.github.io/free-draw/privacy.html`.
 
 ## Content/IP Notes
 

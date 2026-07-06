@@ -40,6 +40,6 @@ https://github.com/starhound/free-draw/issues
 
 ## Privacy policy URL
 
-Use the hosted `privacy.html` URL after publishing. Suggested GitHub Pages URL if Pages is enabled for this repository:
+Use the GitHub Pages privacy policy URL:
 
 https://starhound.github.io/free-draw/privacy.html
