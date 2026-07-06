@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
-const dist = join(root, "dist");
+const dist = join(root, "docs");
 const entries = [
   "index.html",
   "manifest.webmanifest",
@@ -21,4 +21,4 @@ for (const entry of entries) {
   await cp(join(root, entry), join(dist, entry), { recursive: true });
 }
 
-console.log("Built static app in dist/");
+console.log("Built static app in docs/");

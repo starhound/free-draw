@@ -7,3 +7,11 @@ ios/
 *.apks
 *.keystore
 .DS_Store
+
+# Generators and scripting
+venv/
+.venv/
+__pycache__/
+*.py
+*.cjs
+local_sheets.json

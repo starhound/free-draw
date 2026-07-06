@@ -1,0 +1,20 @@
+{
+  "name": "Free Draw Coloring Studio",
+  "short_name": "Free Draw",
+  "description": "A simple drawing and coloring studio for kids.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f7f9fc",
+  "theme_color": "#ffca3a",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["kids", "education", "creativity"]
+}
