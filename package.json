@@ -1,0 +1,16 @@
+{
+  "name": "free-draw",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A simple kid-friendly drawing and coloring app for tablets.",
+  "scripts": {
+    "dev": "node tools/server.mjs",
+    "build": "node tools/build.mjs",
+    "check": "node --check src/main.js && node tools/smoke-test.mjs",
+    "store:assets": "node tools/generate-store-assets.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
+}

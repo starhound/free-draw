@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Free Draw icon">
+  <rect width="512" height="512" rx="96" fill="#ffca3a"/>
+  <path d="M104 356c68 34 152 34 236-1 38-16 54 18 79 47" fill="none" stroke="#172033" stroke-width="34" stroke-linecap="round"/>
+  <path d="M135 286c-4-72 53-131 126-131 71 0 127 55 127 122" fill="none" stroke="#172033" stroke-width="34" stroke-linecap="round"/>
+  <path d="M166 282c3-49 43-89 95-89 51 0 92 38 96 88" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round"/>
+  <circle cx="177" cy="358" r="35" fill="#ff4f6d" stroke="#172033" stroke-width="20"/>
+  <circle cx="262" cy="336" r="35" fill="#35c46a" stroke="#172033" stroke-width="20"/>
+  <circle cx="348" cy="356" r="35" fill="#2f80ed" stroke="#172033" stroke-width="20"/>
+  <path d="M151 142l42-39 42 39-42 39z" fill="#ffffff" stroke="#172033" stroke-width="18" stroke-linejoin="round"/>
+</svg>
