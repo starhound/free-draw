@@ -4,7 +4,8 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
-const dist = join(root, "docs");
+const dist = join(root, "dist");
+const docs = join(root, "docs");
 const entries = [
   "index.html",
   "manifest.webmanifest",
@@ -15,10 +16,13 @@ const entries = [
 ];
 
 await rm(dist, { recursive: true, force: true });
+await rm(docs, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
+await mkdir(docs, { recursive: true });
 
 for (const entry of entries) {
   await cp(join(root, entry), join(dist, entry), { recursive: true });
+  await cp(join(root, entry), join(docs, entry), { recursive: true });
 }
 
-console.log("Built static app in docs/");
+console.log("Built static app in dist/ and docs/");
