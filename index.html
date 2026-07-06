@@ -7,6 +7,9 @@
     <title>Free Draw</title>
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/styles.css">
   </head>
   <body>
@@ -78,6 +81,9 @@
         <aside class="rail pages-rail" aria-label="Coloring pages and stamps">
           <section class="rail-section" aria-labelledby="pagesHeading">
             <h2 id="pagesHeading">Pages</h2>
+            <div class="search-box">
+              <input type="text" id="pageSearch" placeholder="Search sheets..." aria-label="Search sheets">
+            </div>
             <div class="category-strip" id="pageFilters" aria-label="Page categories"></div>
             <div class="page-count" id="pageCount" aria-live="polite"></div>
             <div class="page-list" id="pageList"></div>

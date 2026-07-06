@@ -30,6 +30,7 @@ const els = {
   pageFilters: document.querySelector("#pageFilters"),
   pageCount: document.querySelector("#pageCount"),
   pageList: document.querySelector("#pageList"),
+  pageSearch: document.querySelector("#pageSearch"),
   stampList: document.querySelector("#stampList"),
   mirrorButton: document.querySelector("#mirrorButton"),
   undoButton: document.querySelector("#undoButton"),
@@ -47,6 +48,7 @@ const state = {
   brushSize: Number(els.brushSize.value),
   pageId: "blank",
   pageFilter: "all",
+  searchQuery: "",
   stampId: "star",
   mirror: false,
   isDrawing: false,
@@ -396,6 +398,13 @@ function bindControls() {
   });
   els.saveButton.addEventListener("click", savePicture);
 
+  if (els.pageSearch) {
+    els.pageSearch.addEventListener("input", (e) => {
+      state.searchQuery = e.target.value.toLowerCase();
+      renderPages();
+    });
+  }
+
   window.addEventListener("resize", fitCanvasFrame);
   window.addEventListener("orientationchange", fitCanvasFrame);
 }
@@ -444,7 +453,11 @@ function renderPageFilters() {
 
 function renderPages() {
   els.pageList.replaceChildren();
-  const visiblePages = PAGES.filter((page) => state.pageFilter === "all" || page.category === state.pageFilter);
+  const visiblePages = PAGES.filter((page) => {
+    const matchesCategory = state.pageFilter === "all" || page.category === state.pageFilter;
+    const matchesSearch = !state.searchQuery || page.name.toLowerCase().includes(state.searchQuery);
+    return matchesCategory && matchesSearch;
+  });
   els.pageCount.textContent = `${visiblePages.length} pages`;
   visiblePages.forEach((page) => {
     const button = document.createElement("button");
