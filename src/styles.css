@@ -156,6 +156,10 @@ button {
   pointer-events: none;
 }
 
+#outlineCanvas {
+  mix-blend-mode: multiply;
+}
+
 .icon-button {
   display: inline-grid;
   place-items: center;
