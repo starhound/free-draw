@@ -8,7 +8,8 @@
     "dev": "node tools/server.mjs",
     "build": "node tools/build.mjs",
     "check": "node --check src/main.js && node tools/smoke-test.mjs",
-    "store:assets": "node tools/generate-store-assets.mjs"
+    "store:assets": "npm run screenshots",
+    "screenshots": "node tools/capture-screenshots.mjs"
   },
   "devDependencies": {
     "playwright": "^1.61.1"

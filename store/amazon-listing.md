@@ -33,3 +33,13 @@ drawing, coloring, coloring book, kids art, paint, sketch, creative, offline
 ## Content rating target
 
 All Ages, assuming the final Android build keeps the same no-ads, no-network, no-social, no-account behavior.
+
+## Support URL
+
+https://github.com/starhound/free-draw/issues
+
+## Privacy policy URL
+
+Use the hosted `privacy.html` URL after publishing. Suggested GitHub Pages URL if Pages is enabled for this repository:
+
+https://starhound.github.io/free-draw/privacy.html

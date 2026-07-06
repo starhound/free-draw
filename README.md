@@ -29,6 +29,6 @@ For adding more pages safely, use [docs/content-guidelines.md](/home/starhound/f
 
 ## Amazon Fire
 
-See [docs/amazon-fire-deploy.md](/home/starhound/free-draw/docs/amazon-fire-deploy.md) for the Android wrapper and Amazon Appstore submission path. This machine does not currently have Java, Gradle, or the Android SDK, so it can prepare `dist/` but cannot produce the signed APK/AAB here yet.
+Build the web app with `npm run build`, then package `dist/` with the Android wrapper described in [docs/amazon-fire-deploy.md](/home/starhound/free-draw/docs/amazon-fire-deploy.md).
 
-Use [docs/appstore-release-checklist.md](/home/starhound/free-draw/docs/appstore-release-checklist.md) for the remaining Amazon Appstore steps.
+For the full release flow, including signing, screenshots, privacy details, and Amazon Developer Console steps, use [docs/appstore-release-checklist.md](/home/starhound/free-draw/docs/appstore-release-checklist.md).
