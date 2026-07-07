@@ -12,6 +12,11 @@
     "screenshots": "node tools/capture-screenshots.mjs"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.4.1",
     "playwright": "^1.61.1"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/core": "^8.4.1"
   }
 }
