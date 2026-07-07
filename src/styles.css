@@ -590,13 +590,9 @@ button {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .icon-button {
+  .action-bar .icon-button {
     width: 100%;
     min-width: 48px;
-  }
-
-  .tools-rail {
-    grid-template-columns: 1fr;
   }
 
   .canvas-frame {
