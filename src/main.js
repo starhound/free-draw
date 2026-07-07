@@ -4749,6 +4749,7 @@ function setupPaint(ctx) {
 }
 
 function getPaintSize() {
+  if (state.tool === "pencil") return 6;
   return state.tool === "eraser" ? state.brushSize * 1.45 : state.brushSize;
 }
 
