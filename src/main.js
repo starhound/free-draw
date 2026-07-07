@@ -16,12 +16,6 @@ const COLORS = [
   "#f15bb5",
   "#ffffff",
   "#172033"
-
-  { id: "animals", name: "Animals & Pets" },
-  { id: "vehicles", name: "Vehicles" },
-  { id: "food", name: "Food & Snacks" },
-  { id: "nature", name: "Nature" },
-  { id: "places", name: "Places & Buildings" }
 ];
 
 const els = {
@@ -70,7 +64,12 @@ const PAGE_CATEGORIES = [
   { id: "starter", name: "Starter" },
   { id: "ai_sheets", name: "Magic Sheets" },
   { id: "mandalas", name: "Mandalas" },
-  { id: "geometric", name: "Geometric Patterns" }
+  { id: "geometric", name: "Geometric Patterns" },
+  { id: "animals", name: "Animals & Pets" },
+  { id: "vehicles", name: "Vehicles" },
+  { id: "food", name: "Food & Snacks" },
+  { id: "nature", name: "Nature" },
+  { id: "places", name: "Places & Buildings" }
 ];
 
 const STAMPS = [
@@ -1943,7 +1942,7 @@ function drawPublicDomainSheet(ctx, sheet, options = {}) {
     return;
   }
 
-  drawFittedImage(ctx, entry.image, 92);
+  drawFittedImage(ctx, entry.image, 20);
   finishOutline(ctx);
 }
 
@@ -1995,15 +1994,11 @@ function drawPublicDomainPlaceholder(ctx, name) {
 }
 
 function drawFittedImage(ctx, image, margin) {
-  const imageWidth = image.naturalWidth || image.width || WIDTH;
-  const imageHeight = image.naturalHeight || image.height || HEIGHT;
-  const maxWidth = WIDTH - margin * 2;
-  const maxHeight = HEIGHT - margin * 2;
-  const scale = Math.min(maxWidth / imageWidth, maxHeight / imageHeight);
-  const drawWidth = imageWidth * scale;
-  const drawHeight = imageHeight * scale;
-  const x = (WIDTH - drawWidth) / 2;
-  const y = (HEIGHT - drawHeight) / 2;
+  // Stretch the image to perfectly fill the canvas width and height
+  const drawWidth = WIDTH - margin * 2;
+  const drawHeight = HEIGHT - margin * 2;
+  const x = margin;
+  const y = margin;
   ctx.drawImage(image, x, y, drawWidth, drawHeight);
 }
 
@@ -4695,23 +4690,62 @@ function drawDot(point) {
 function drawSegment(from, to) {
   const ctx = drawingCtx;
   ctx.save();
-  setupPaint(ctx);
-  ctx.beginPath();
-  ctx.moveTo(from.x, from.y);
-  ctx.lineTo(to.x, to.y);
-  ctx.stroke();
+  
+  if (state.tool === "marker") {
+    // Implement a Crayon/Chalk scatter effect for the marker tool
+    const dist = Math.hypot(to.x - from.x, to.y - from.y);
+    const steps = Math.max(1, Math.ceil(dist / 2));
+    ctx.fillStyle = state.color;
+    ctx.globalAlpha = 0.8;
+    for (let i = 0; i <= steps; i++) {
+      const x = from.x + (to.x - from.x) * (i / steps);
+      const y = from.y + (to.y - from.y) * (i / steps);
+      const density = Math.max(1, Math.floor(state.brushSize / 4));
+      for (let j = 0; j < density; j++) {
+        const rx = x + (Math.random() - 0.5) * state.brushSize;
+        const ry = y + (Math.random() - 0.5) * state.brushSize;
+        ctx.beginPath();
+        ctx.arc(rx, ry, Math.random() * 1.5 + 0.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  } else {
+    setupPaint(ctx);
+    ctx.beginPath();
+    ctx.moveTo(from.x, from.y);
+    ctx.lineTo(to.x, to.y);
+    ctx.stroke();
+  }
+  
   ctx.restore();
 }
 
 function setupPaint(ctx) {
   const erasing = state.tool === "eraser";
+  const isNeon = state.tool === "neon";
+  const isMarker = state.tool === "marker";
   const color = state.tool === "rainbow" ? nextRainbowColor() : state.color;
-  ctx.globalCompositeOperation = "source-over";
+  
+  if (isMarker) {
+    ctx.globalCompositeOperation = "multiply";
+    ctx.globalAlpha = 0.6;
+  } else {
+    ctx.globalCompositeOperation = "source-over";
+    ctx.globalAlpha = 1.0;
+  }
+  
   ctx.lineCap = "round";
   ctx.lineJoin = "round";
   ctx.lineWidth = getPaintSize();
   ctx.strokeStyle = erasing ? PAPER : color;
   ctx.fillStyle = erasing ? PAPER : color;
+
+  if (isNeon) {
+    ctx.shadowBlur = ctx.lineWidth * 1.5;
+    ctx.shadowColor = color;
+  } else {
+    ctx.shadowBlur = 0;
+  }
 }
 
 function getPaintSize() {
